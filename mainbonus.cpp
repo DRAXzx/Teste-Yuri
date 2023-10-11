@@ -58,14 +58,8 @@ int main() {
 
     cabeca = reverterIntervalo(cabeca, inicio, fim);
 
-    cout << "Lista ligada após a reversão: ";
+    cout << "Lista ligada apÃ³s a reversÃ£o: ";
     imprimirLista(cabeca);
-
-    while (cabeca != NULL) {
-        No* temp = cabeca;
-        cabeca = cabeca->proximo;
-        delete temp;
-    }
 
     return 0;
 }
