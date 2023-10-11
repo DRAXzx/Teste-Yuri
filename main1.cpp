@@ -9,16 +9,16 @@ struct No {
 
 class ListaEncadeada {
 public:
-    ListaEncadeada() : cabeca(NULL) {}
+    ListaEncadeada() : head(NULL) {}
 
     void inserir(int valor) {
-        No* novoNo = new No{valor, cabeca};
-        cabeca = novoNo;
+        No* novoNo = new No{valor, head};
+        head = novoNo;
     }
 
     bool saoIdenticas(const ListaEncadeada& outra) const {
-        No* atual1 = cabeca;
-        No* atual2 = outra.cabeca;
+        No* atual1 = head;
+        No* atual2 = outra.head;
 
         while (atual1 != NULL && atual2 != NULL) {
             if (atual1->dado != atual2->dado) {
@@ -32,7 +32,7 @@ public:
     }
 
 private:
-    No* cabeca;
+    No* head;
 };
 
 int main() {
@@ -48,9 +48,9 @@ int main() {
     lista2.inserir(1);
 
     if (lista1.saoIdenticas(lista2)) {
-        cout << "As listas são idênticas." << endl;
+        cout << "As listas sÃ£o idÃªnticas." << endl;
     } else {
-        cout << "As listas não são idênticas." << endl;
+        cout << "As listas nÃ£o sÃ£o idÃªnticas." << endl;
     }
 
     return 0;
