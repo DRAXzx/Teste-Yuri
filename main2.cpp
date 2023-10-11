@@ -2,14 +2,14 @@
 
 using namespace std;
 
-struct Nodo {
+struct No {
     int dado;
-    Nodo* proximo;
-    Nodo(int dado) : dado(dado), proximo(NULL) {}
+    No* proximo;
+    No(int dado) : dado(dado), proximo(NULL) {}
 };
 
-void imprimirLista(Nodo* cabeca) {
-    Nodo* atual = cabeca;
+void imprimirLista(No* head) {
+    No* atual = head;
     while (atual != NULL) {
         cout << atual->dado << " -> ";
         atual = atual->proximo;
@@ -17,12 +17,12 @@ void imprimirLista(Nodo* cabeca) {
     cout << "NULL" << endl;
 }
 
-Nodo* inverterLista(Nodo* cabeca) {
-    Nodo* anterior = NULL;
-    Nodo* atual = cabeca;
+No* inverterLista(No* head) {
+    No* anterior = NULL;
+    No* atual = head;
 
     while (atual != NULL) {
-        Nodo* proximo = atual->proximo;
+        No* proximo = atual->proximo;
         atual->proximo = anterior;
         anterior = atual;
         atual = proximo;
@@ -32,18 +32,18 @@ Nodo* inverterLista(Nodo* cabeca) {
 }
 
 int main() {
-    Nodo* cabeca = new Nodo(1);
-    cabeca->proximo = new Nodo(2);
-    cabeca->proximo->proximo = new Nodo(3);
-    cabeca->proximo->proximo->proximo = new Nodo(4);
+    No* head = new No(1);
+    head->proximo = new No(2);
+    head->proximo->proximo = new No(3);
+    head->proximo->proximo->proximo = new No(4);
 
     cout << "Lista original: ";
-    imprimirLista(cabeca);
+    imprimirLista(head);
 
-    cabeca = inverterLista(cabeca);
+    cabeca = inverterLista(head);
 
     cout << "Lista revertida: ";
-    imprimirLista(cabeca);
+    imprimirLista(head);
 
     return 0;
 }
