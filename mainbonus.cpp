@@ -9,20 +9,20 @@ struct No {
     No(int valor) : dado(valor), proximo(NULL) {}
 };
 
-void imprimirLista(No* cabeca) {
-    while (cabeca != NULL) {
-        cout << cabeca->dado;
-        cabeca = cabeca->proximo;
-        if (cabeca != NULL) {
+void imprimirLista(No* head) {
+    while (head != NULL) {
+        cout << head->dado;
+        cabeca = head->proximo;
+        if (head != NULL) {
             cout << "->";
         }
     }
     cout << "NULL" << endl;
 }
 
-No* reverterIntervalo(No* cabeca, int inicio, int fim) {
+No* reverterIntervalo(No* head, int inicio, int fim) {
     No* dummy = new No(0);
-    dummy->proximo = cabeca;
+    dummy->proximo = head;
     No* anterior = dummy;
 
     for (int i = 1; i < inicio; ++i) {
@@ -43,23 +43,23 @@ No* reverterIntervalo(No* cabeca, int inicio, int fim) {
 }
 
 int main() {
-    No* cabeca = new No(10);
-    cabeca->proximo = new No(11);
-    cabeca->proximo->proximo = new No(12);
-    cabeca->proximo->proximo->proximo = new No(13);
-    cabeca->proximo->proximo->proximo->proximo = new No(14);
-    cabeca->proximo->proximo->proximo->proximo->proximo = new No(15); 
+    No* head = new No(10);
+    head->proximo = new No(11);
+    head->proximo->proximo = new No(12);
+    head->proximo->proximo->proximo = new No(13);
+    head->proximo->proximo->proximo->proximo = new No(14);
+    head->proximo->proximo->proximo->proximo->proximo = new No(15); 
     
     int inicio = 3;
     int fim = 5;
 
     cout << "Lista ligada original: ";
-    imprimirLista(cabeca);
+    imprimirLista(head);
 
-    cabeca = reverterIntervalo(cabeca, inicio, fim);
+    head = reverterIntervalo(head, inicio, fim);
 
     cout << "Lista ligada após a reversão: ";
-    imprimirLista(cabeca);
+    imprimirLista(head);
 
     return 0;
 }
