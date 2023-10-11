@@ -10,7 +10,7 @@ struct No {
 };
 
 int main() {
-    No* cabeca = NULL;
+    No* head = NULL;
     int n, valor;
 
     for (int i = 0; i < 6; i++) {
@@ -18,23 +18,23 @@ int main() {
         cin >> valor;
 
         No* novoNo = new No(valor);
-        novoNo->proximo = cabeca;
-        cabeca = novoNo;
+        novoNo->proximo = head;
+        head = novoNo;
     }
 
     cout << "Lista encadeada: ";
-    No* atual = cabeca;
+    No* atual = head;
     while (atual != NULL) {
         cout << atual->dado << " -> ";
         atual = atual->proximo;
     }
     cout << "NULL" << endl;
 
-    cout << "Digite o número a ser contado: ";
+    cout << "Digite o nÃºmero a ser contado: ";
     cin >> valor;
 
     int ocorrencias = 0;
-    atual = cabeca;
+    atual = head;
     while (atual != NULL) {
         if (atual->dado == valor) {
             ocorrencias++;
@@ -42,14 +42,9 @@ int main() {
         atual = atual->proximo;
     }
 
-    cout << "O número " << valor << " ocorre " << ocorrencias << " vezes na lista encadeada." << endl;
+    cout << "O nÃºmero " << valor << " ocorre " << ocorrencias << " vezes na lista encadeada." << endl;
 
-    atual = cabeca;
-    while (atual != NULL) {
-        No* temp = atual;
-        atual = atual->proximo;
-        delete temp;
-    }
-
+    atual = head;
+    
     return 0;
 }
